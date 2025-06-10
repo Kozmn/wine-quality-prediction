@@ -34,7 +34,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 174,
+   "execution_count": 153,
    "id": "4f802de6",
    "metadata": {},
    "outputs": [
@@ -168,7 +168,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 175,
+   "execution_count": 154,
    "id": "9f5c5937",
    "metadata": {},
    "outputs": [
@@ -251,7 +251,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 176,
+   "execution_count": 155,
    "id": "0ecfb284",
    "metadata": {},
    "outputs": [
@@ -331,7 +331,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 177,
+   "execution_count": 156,
    "id": "fe2b0cf1",
    "metadata": {},
    "outputs": [
@@ -447,7 +447,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 178,
+   "execution_count": 157,
    "id": "afc38524",
    "metadata": {},
    "outputs": [
@@ -462,18 +462,6 @@
       "Target variable: quality (range: 3-8)\n",
       "\n",
       "=== FEATURE SCALES (BEFORE PREPROCESSING) ===\n",
-      "                                   Feature    Min      Max    Mean     Std\n",
-      "fixed acidity                fixed acidity  4.600   15.900   8.320   1.741\n",
-      "volatile acidity          volatile acidity  0.120    1.580   0.528   0.179\n",
-      "citric acid                    citric acid  0.000    1.000   0.271   0.195\n",
-      "residual sugar              residual sugar  0.900   15.500   2.539   1.410\n",
-      "chlorides                        chlorides  0.012    0.611   0.087   0.047\n",
-      "free sulfur dioxide    free sulfur dioxide  1.000   72.000  15.875  10.460\n",
-      "total sulfur dioxide  total sulfur dioxide  6.000  289.000  46.468  32.895\n",
-      "density                            density  0.990    1.004   0.997   0.002\n",
-      "pH                                      pH  2.740    4.010   3.311   0.154\n",
-      "sulphates                        sulphates  0.330    2.000   0.658   0.170\n",
-      "alcohol                            alcohol  8.400   14.900  10.423   1.066\n",
       "                                   Feature    Min      Max    Mean     Std\n",
       "fixed acidity                fixed acidity  4.600   15.900   8.320   1.741\n",
       "volatile acidity          volatile acidity  0.120    1.580   0.528   0.179\n",
@@ -514,7 +502,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 179,
+   "execution_count": 158,
    "id": "2fe0cc9f",
    "metadata": {},
    "outputs": [
@@ -590,7 +578,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 180,
+   "execution_count": 159,
    "id": "3da290b8",
    "metadata": {},
    "outputs": [
@@ -683,7 +671,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 181,
+   "execution_count": 160,
    "id": "60dab07f",
    "metadata": {},
    "outputs": [
@@ -869,7 +857,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 182,
+   "execution_count": 161,
    "id": "03e33d19",
    "metadata": {},
    "outputs": [
@@ -992,7 +980,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 183,
+   "execution_count": 162,
    "id": "52253474",
    "metadata": {},
    "outputs": [
@@ -1001,6 +989,24 @@
      "output_type": "stream",
      "text": [
       "=== XGBOOST REGRESSION MODEL TRAINING ===\n",
+      "Model trained successfully on training dataset\n",
+      "Predictions generated for both training and test sets\n",
+      "\n",
+      "=== XGBOOST REGRESSION MODEL RESULTS ===\n",
+      "TRAINING SET PERFORMANCE:\n",
+      "   MSE (Mean Squared Error): 0.3045\n",
+      "   MAE (Mean Absolute Error): 0.4401\n",
+      "   R² (Coefficient of Determination): 0.5339\n",
+      "\n",
+      "TEST SET PERFORMANCE:\n",
+      "   MSE (Mean Squared Error): 0.3910\n",
+      "   MAE (Mean Absolute Error): 0.4950\n",
+      "   R² (Coefficient of Determination): 0.3940\n",
+      "\n",
+      "=== OVERFITTING ANALYSIS ===\n",
+      "   MSE difference (test - train): 0.0865\n",
+      "   MAE difference (test - train): 0.0549\n",
+      "   R² difference (train - test): 0.1399\n",
       "Model trained successfully on training dataset\n",
       "Predictions generated for both training and test sets\n",
       "\n",
@@ -1091,7 +1097,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 184,
+   "execution_count": 164,
    "id": "add52c27",
    "metadata": {},
    "outputs": [
@@ -1116,13 +1122,7 @@
       "Training R²: 0.3401\n",
       "Test R²: 0.3567\n",
       "\n",
-      "=== XGBOOST - TOP 5 FEATURES ===\n",
-      "Training MSE: 0.0828\n",
-      "Test MSE: 0.3472\n",
-      "Training MAE: 0.2114\n",
-      "Test MAE: 0.4416\n",
-      "Training R²: 0.8733\n",
-      "Test R²: 0.4620\n"
+      "=== XGBOOST - TOP 5 FEATURES ===\n"
      ]
     },
     {
@@ -1141,6 +1141,18 @@
       "  return X @ coef_ + self.intercept_\n",
       "/Users/kacpero/Desktop/pytorch/wine-quality-prediction/.venv/lib/python3.11/site-packages/sklearn/linear_model/_base.py:279: RuntimeWarning: invalid value encountered in matmul\n",
       "  return X @ coef_ + self.intercept_\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Training MSE: 0.0828\n",
+      "Test MSE: 0.3472\n",
+      "Training MAE: 0.2114\n",
+      "Test MAE: 0.4416\n",
+      "Training R²: 0.8733\n",
+      "Test R²: 0.4620\n"
      ]
     }
    ],
@@ -1231,7 +1243,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 185,
+   "execution_count": 165,
    "id": "fe86a845",
    "metadata": {},
    "outputs": [
@@ -1241,6 +1253,12 @@
      "text": [
       "Starting RandomizedSearchCV for XGBoost with all features...\n",
       "Fitting 5 folds for each of 50 candidates, totalling 250 fits\n",
+      "Fitting 5 folds for each of 50 candidates, totalling 250 fits\n",
+      "\n",
+      "=== RANDOMIZED SEARCH RESULTS - ALL FEATURES ===\n",
+      "\n",
+      "Best parameters: {'colsample_bytree': np.float64(0.6367196263253767), 'learning_rate': np.float64(0.03730552659788243), 'max_depth': 8, 'min_child_weight': 4, 'n_estimators': 246, 'reg_alpha': np.float64(0.4741738290873252), 'reg_lambda': np.float64(1.391336642604006), 'subsample': np.float64(0.7966463500467329)}\n",
+      "Best cross-validated MSE: 0.3520\n",
       "\n",
       "=== RANDOMIZED SEARCH RESULTS - ALL FEATURES ===\n",
       "\n",
@@ -1290,7 +1308,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 186,
+   "execution_count": 166,
    "id": "d6bbfdc5",
    "metadata": {},
    "outputs": [
@@ -1301,6 +1319,11 @@
       "\n",
       "Starting RandomizedSearchCV for XGBoost with top 5 features...\n",
       "Fitting 5 folds for each of 50 candidates, totalling 250 fits\n",
+      "\n",
+      "=== RANDOMIZED SEARCH RESULTS - TOP 5 FEATURES ===\n",
+      "\n",
+      "Best parameters: {'colsample_bytree': np.float64(0.7433862914177091), 'learning_rate': np.float64(0.04360202726228762), 'max_depth': 9, 'min_child_weight': 1, 'n_estimators': 121, 'reg_alpha': np.float64(0.4494506741382034), 'reg_lambda': np.float64(1.3816404659616452), 'subsample': np.float64(0.7483273008793065)}\n",
+      "Best cross-validated MSE: 0.3720\n",
       "\n",
       "=== RANDOMIZED SEARCH RESULTS - TOP 5 FEATURES ===\n",
       "\n",
@@ -1335,7 +1358,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 187,
+   "execution_count": 167,
    "id": "d6a7fc76",
    "metadata": {},
    "outputs": [
@@ -1406,7 +1429,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 188,
+   "execution_count": 168,
    "id": "2150736c",
    "metadata": {},
    "outputs": [
@@ -1486,7 +1509,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 189,
+   "execution_count": 169,
    "id": "d0eb7866",
    "metadata": {},
    "outputs": [
@@ -1576,7 +1599,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 190,
+   "execution_count": 170,
    "id": "e2c6ea64",
    "metadata": {},
    "outputs": [
@@ -1645,48 +1668,10 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 191,
+   "execution_count": null,
    "id": "6144a8a5",
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "================================================================================\n",
-      "CALCULATING FINAL METRICS FOR SUMMARY\n",
-      "================================================================================\n",
-      "\n",
-      " BEST PERFORMING MODEL: XGBoost Optimized (All Features)\n",
-      "   Test R²: 0.4888\n",
-      "   Test MSE: 0.3298\n",
-      "   Test MAE: 0.4064\n",
-      "\n",
-      " PERFORMANCE VS BASELINE (Linear Regression R² = 0.3703):\n",
-      "   • XGBoost Basic improvement: +6.4%\n",
-      "   • XGBoost Optimized improvement: +32.0%\n",
-      "\n",
-      " 'Performance vs Baseline' means how much better (in %) the model\n",
-      "    performs compared to baseline model (Linear Regression). Higher R²\n",
-      "    means better wine quality prediction.\n",
-      "\n",
-      " TOP 5 MOST IMPORTANT FEATURES (from best model):\n",
-      "   1. alcohol: 0.2246\n",
-      "   2. sulphates: 0.1244\n",
-      "   3. volatile acidity: 0.1095\n",
-      "   4. total sulfur dioxide: 0.0792\n",
-      "   5. citric acid: 0.0741\n",
-      "\n",
-      " FEATURE SELECTION IMPACT:\n",
-      "   • All features (R²): 0.4888\n",
-      "   • Top 5 features (R²): 0.4634\n",
-      "   • Reduction efficiency: 94.8% of predictive power\n",
-      "\n",
-      " These values will be used in the markdown summary below\n",
-      "================================================================================\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "# Calculate final metrics and performance improvements for summary\n",
     "print(\"=\"*80)\n",
@@ -1700,7 +1685,7 @@
     "best_test_mse = comprehensive_comparison.loc[best_model_idx, 'Test MSE']\n",
     "best_test_mae = comprehensive_comparison.loc[best_model_idx, 'Test MAE']\n",
     "\n",
-    "print(f\"\\n BEST PERFORMING MODEL: {best_model_name}\")\n",
+    "print(f\"\\n🏆 BEST PERFORMING MODEL: {best_model_name}\")\n",
     "print(f\"   Test R²: {best_test_r2:.4f}\")\n",
     "print(f\"   Test MSE: {best_test_mse:.4f}\")\n",
     "print(f\"   Test MAE: {best_test_mae:.4f}\")\n",
@@ -1710,26 +1695,26 @@
     "xgb_basic_improvement = ((test_r2_xgb - baseline_r2) / baseline_r2 * 100)\n",
     "xgb_optimized_improvement = ((best_test_r2 - baseline_r2) / baseline_r2 * 100)\n",
     "\n",
-    "print(f\"\\n PERFORMANCE VS BASELINE (Linear Regression R² = {baseline_r2:.4f}):\")\n",
+    "print(f\"\\n📈 PERFORMANCE VS BASELINE (Linear Regression R² = {baseline_r2:.4f}):\")\n",
     "print(f\"   • XGBoost Basic improvement: +{xgb_basic_improvement:.1f}%\")\n",
     "print(f\"   • XGBoost Optimized improvement: +{xgb_optimized_improvement:.1f}%\")\n",
-    "print(f\"\\n 'Performance vs Baseline' means how much better (in %) the model\")\n",
+    "print(f\"\\n💡 'Performance vs Baseline' means how much better (in %) the model\")\n",
     "print(f\"    performs compared to baseline model (Linear Regression). Higher R²\")\n",
     "print(f\"    means better wine quality prediction.\")\n",
     "\n",
     "# Feature importance from best model\n",
-    "print(f\"\\n TOP 5 MOST IMPORTANT FEATURES (from best model):\")\n",
+    "print(f\"\\n🔍 TOP 5 MOST IMPORTANT FEATURES (from best model):\")\n",
     "for i, (_, row) in enumerate(feature_importance_all.head(5).iterrows()):\n",
     "    print(f\"   {i+1}. {row['Feature']}: {row['Importance']:.4f}\")\n",
     "\n",
     "# Feature selection impact\n",
     "feature_reduction_efficiency = (test_r2_best_top5 / test_r2_best_all * 100)\n",
-    "print(f\"\\n FEATURE SELECTION IMPACT:\")\n",
+    "print(f\"\\n📊 FEATURE SELECTION IMPACT:\")\n",
     "print(f\"   • All features (R²): {test_r2_best_all:.4f}\")\n",
     "print(f\"   • Top 5 features (R²): {test_r2_best_top5:.4f}\")\n",
     "print(f\"   • Reduction efficiency: {feature_reduction_efficiency:.1f}% of predictive power\")\n",
     "\n",
-    "print(f\"\\n These values will be used in the markdown summary below\")\n",
+    "print(f\"\\n✅ These values will be used in the markdown summary below\")\n",
     "print(\"=\"*80)"
    ]
   },
@@ -1759,7 +1744,7 @@
     "\n",
     "---\n",
     "\n",
-    "##  Key Findings\n",
+    "## 📊 Key Findings\n",
     "\n",
     "### 1. Model Performance Comparison\n",
     "\n",
@@ -1804,45 +1789,6 @@
     "-  **Hyperparameter tuning impact**: Meaningful improvements achieved\n",
     "-  **Generalization quality**: Low train-test performance gap indicates good model stability\n",
     "\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "05f978e2",
-   "metadata": {},
-   "source": [
-    "## 12. Flask API Implementation\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "356b3dfd",
-   "metadata": {},
-   "source": [
-    "### 12.1 Saving xgboost model using joblib"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 196,
-   "id": "18e2a231",
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Model and scaler saved successfully!\n"
-     ]
-    }
-   ],
-   "source": [
-    "import joblib\n",
-    "\n",
-    "joblib.dump(best_xgb_all, '../models/xgb_best_all_features.pkl')\n",
-    "joblib.dump(scaler, '../models/scaler.pkl')\n",
-    "\n",
-    "print(\"Model and scaler saved successfully!\")\n"
    ]
   }
  ],
