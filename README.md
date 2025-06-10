@@ -58,6 +58,8 @@ This project analyzes the UCI Wine Quality dataset to predict wine quality score
 ├── notebooks/
 │   └── 01_wine_quality_analysis.ipynb # Complete analysis pipeline
 ├── requirements.txt                  # Python dependencies
+├── Dockerfile                        # Docker container configuration
+├── docker-compose.yml               # Docker orchestration
 └── README.md                        # Project documentation
 ```
 
@@ -143,8 +145,76 @@ curl -X POST http://localhost:8000/api/predict \
 - Hyperparameter optimization techniques
 - Data visualization and statistical analysis
 - REST API development and documentation
+- Docker containerization and orchestration
+- Production-ready deployment strategies
 - Model deployment and productionization
 - Code documentation and reproducible research
 
----
+## Docker Deployment
+
+The project includes containerization with Docker for easy deployment and consistent environments across different systems.
+
+### Quick Start with Docker
+
+#### Option 1: Docker Compose (Recommended)
+```bash
+# Clone and run in one command
+git clone https://github.com/your-username/wine-quality-prediction.git
+cd wine-quality-prediction
+docker-compose up --build
+```
+
+#### Option 2: Manual Docker Build
+```bash
+# Build the image
+docker build -t wine-quality-api .
+
+# Run the container
+docker run -p 8000:8000 wine-quality-api
+```
+
+### Access the API
+
+Once running, the API will be available at:
+- **Main API**: http://localhost:8000/
+- **Swagger Documentation**: http://localhost:8000/docs/
+- **Health Check**: http://localhost:8000/health
+- **Model Info**: http://localhost:8000/api/info
+
+### Test the Prediction API
+
+```bash
+# Test wine quality prediction
+curl -X POST http://localhost:8000/api/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "fixed acidity": 7.4,
+    "volatile acidity": 0.7,
+    "citric acid": 0.0,
+    "residual sugar": 1.9,
+    "chlorides": 0.076,
+    "free sulfur dioxide": 11.0,
+    "total sulfur dioxide": 34.0,
+    "density": 0.9978,
+    "pH": 3.51,
+    "sulphates": 0.56,
+    "alcohol": 9.4
+  }'
+
+# Expected response:
+# {
+#   "predicted_quality": 5.03,
+#   "input_features": {...},
+#   "message": "prediction successful"
+# }
+```
+
+### Docker Features
+
+- **Consistent Environment**: Same Python version and dependencies everywhere
+- **Easy Setup**: One command deployment (`docker-compose up --build`)
+- **Isolated Runtime**: No conflicts with local Python installations
+- **Portable**: Runs on any system with Docker installed
+- **Automatic Restart**: Container restarts on failure
+- **Health Monitoring**: Built-in health checks for the API
 

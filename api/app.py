@@ -46,8 +46,8 @@ api = Api(app,
 
 # Load pre-trained machine learning models
 try:
-    model = joblib.load("../models/xgb_best_all_features.pkl")
-    scaler = joblib.load("../models/scaler.pkl")
+    model = joblib.load("models/xgb_best_all_features.pkl")
+    scaler = joblib.load("models/scaler.pkl")
     print("Model and scaler loaded successfully")
 except Exception as e:
     print(f"Error loading models: {e}")
@@ -207,4 +207,4 @@ if __name__ == '__main__':
     print("API Documentation: http://localhost:8000/docs/")
     print("Health Check: http://localhost:8000/health")
     print("Prediction Endpoint: http://localhost:8000/api/predict")
-    app.run(debug=True, port=8000)
+    app.run(debug=True, host='0.0.0.0', port=8000)
